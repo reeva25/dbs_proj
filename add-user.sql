@@ -1,7 +1,5 @@
-
-
 Create or replace procedure add_user is
- t_user_id users.userid%type;
+t_user_id users.userid%type;
 t_name users.name%type;
 t1_Subscription users.SubscriptionType%type;
 
