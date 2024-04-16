@@ -1,13 +1,3 @@
-CREATE TABLE Book (
-    BookID NUMERIC(5) PRIMARY KEY,
-    AuthID NUMERIC(5),
-    GenreID NUMERIC(5),
-    Title VARCHAR(45),
-    TotalQty NUMERIC(5),
-    AvailableQty NUMERIC(5),
-    FOREIGN KEY (AuthID) REFERENCES Author(AuthID),
-    FOREIGN KEY (GenreID) REFERENCES Genre(GenreID)
-);
 
 CREATE TABLE Author (
     AuthID number PRIMARY KEY,
@@ -19,6 +9,17 @@ CREATE TABLE Author (
 CREATE TABLE Genre (
     GenreID NUMERIC(5) PRIMARY KEY,
     GenreName VARCHAR(25)
+);
+
+CREATE TABLE Book (
+    BookID NUMERIC(5) PRIMARY KEY,
+    AuthID NUMERIC(5),
+    GenreID NUMERIC(5),
+    Title VARCHAR(45),
+    TotalQty NUMERIC(5),
+    AvailableQty NUMERIC(5),
+    FOREIGN KEY (AuthID) REFERENCES Author(AuthID),
+    FOREIGN KEY (GenreID) REFERENCES Genre(GenreID)
 );
 
 CREATE TABLE Inventory (
@@ -73,7 +74,7 @@ CREATE TABLE UsersSubscriptionDues (
     SubType VARCHAR(50),
     DueID NUMERIC(5),
     PRIMARY KEY (UsersID),
-    FOREIGN KEY (UsersID) REFERENCES Users(UsersID),
+    FOREIGN KEY (UsersID) REFERENCES Users(UserID),
     FOREIGN KEY (SubType) REFERENCES Subscription(SubType),
     FOREIGN KEY (DueID) REFERENCES Dues(DueID)
 );
