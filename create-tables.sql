@@ -52,7 +52,7 @@ CREATE TABLE Borrow (
     UserID NUMERIC(5) ,
     Status VARCHAR(50),
     FOREIGN KEY (BookID,InventoryID) REFERENCES Inventory(BookID, InventoryNo),
-    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 CREATE TABLE Dues (
