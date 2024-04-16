@@ -24,13 +24,13 @@ t_gid genre.GenreID%type;
                     DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
         END;
 /
-Create or replace procedure add_book is
+Create or replace procedure add_book(T_TITLE BOOK.TITLE%TYPE,ANAME AUTHOR.NAME%TYPE,GNAME GENRE.GenreName%TYPE) is
 	T_BID BOOK.BOOKID%TYPE;
    	T_AUTHID BOOK.AUTHID%TYPE;
-	ANAME AUTHOR.NAME%TYPE;
-	GNAME GENRE.GenreName%TYPE;
+	
+	
 	T_GENREID BOOK.GENREID%TYPE;
-	T_TITLE BOOK.TITLE%TYPE;
+	
 	T_TOTQTY BOOK.TOTALQTY%TYPE;
     A_QTY BOOK.AvailableQty%TYPE;
 	flag int;
@@ -39,9 +39,7 @@ Create or replace procedure add_book is
 	cursor c_book is select title from book for update;
 	begin
     flag := 0;
-	t_title:='&title';
-	aname:='&authr';
-	gname:='&genre';
+
 
 	select count(bookid)+1 into t_bid from book;
 	
@@ -92,7 +90,7 @@ End;
 
 set serveroutput on;
 begin
-add_book;
+add_book('Percy Jackson','Rick','Fiction');
 end;
 /
 
