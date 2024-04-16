@@ -49,6 +49,7 @@ If flag=0 then
 update book set AvailableQty= AvailableQty+1 where bookid=bid;
 
 update inventory set available='YES' where bookid=bid and inventoryno=invid;
+update borrow set status='received' where bookid=bid and borrowid=borrid;
 End if;
 
 end;
