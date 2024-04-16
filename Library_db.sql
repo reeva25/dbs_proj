@@ -11,9 +11,7 @@ CREATE TABLE Book (
 
 CREATE TABLE Author (
     AuthID number PRIMARY KEY,
-    Name VARCHAR(25),
-    Nationality VARCHAR(25),
-    Gender VARCHAR(5)
+    Name VARCHAR(25)
 );
 
 CREATE TABLE Genre (
@@ -39,8 +37,7 @@ CREATE TABLE Borrow (
     UsersID NUMERIC(5) ,
     Status VARCHAR(50),
     FOREIGN KEY (BookID,InventoryID) REFERENCES Inventory(BookID, InventoryNo),
-    FOREIGN KEY (UsersID) REFERENCES Users(UsersID),
-    Check (Status in('Paid', 'Unpaid'))
+    FOREIGN KEY (UsersID) REFERENCES Users(UsersID)
 );
 
 CREATE TABLE Subscription (
