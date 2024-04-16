@@ -51,29 +51,29 @@ Create or replace procedure add_book is
 end if;
 End;
 /
--- Create or replace procedure add_author(aname author.name%type)  is
--- 	t_auth_id author.authid%type;
--- 	begin
--- 	t_auth_id := '&authorid';
--- 	insert into author values (t_auth_id,aname);
--- 	exception
--- 	  WHEN DUP_VAL_ON_INDEX THEN
---                     DBMS_OUTPUT.PUT_LINE('Error: Author with ID ' || t_auth_id || ' already exists.');
---                 WHEN OTHERS THEN
---                     DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
---     END;
--- /
+Create or replace procedure add_author(aname author.name%type)  is
+	t_auth_id author.authid%type;
+	begin
+	t_auth_id := '&authorid';
+	insert into author values (t_auth_id,aname);
+	exception
+	  WHEN DUP_VAL_ON_INDEX THEN
+                    DBMS_OUTPUT.PUT_LINE('Error: Author with ID ' || t_auth_id || ' already exists.');
+                WHEN OTHERS THEN
+                    DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+    END;
+/
 
--- Create or replace procedure add_genre(gname genre.GenreName%type) is
--- t_gid genre.GenreID%type;
--- 	begin
--- 	t_gid := '&genreid';
--- 	insert into genre values (t_gid,gname);
--- 	exception
--- 	  WHEN DUP_VAL_ON_INDEX THEN
---                     DBMS_OUTPUT.PUT_LINE('Error: Genre with ID ' || t_gid || ' already exists.');
---                 WHEN OTHERS THEN
---                     DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
---         END;
--- /
+Create or replace procedure add_genre(gname genre.GenreName%type) is
+t_gid genre.GenreID%type;
+	begin
+	t_gid := '&genreid';
+	insert into genre values (t_gid,gname);
+	exception
+	  WHEN DUP_VAL_ON_INDEX THEN
+                    DBMS_OUTPUT.PUT_LINE('Error: Genre with ID ' || t_gid || ' already exists.');
+                WHEN OTHERS THEN
+                    DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+        END;
+/
 
