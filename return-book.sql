@@ -1,4 +1,4 @@
-create or replace procedure return_book is
+create or replace procedure return_book(borrid borrow.borrowid%type,p_method Dues.Method%TYPE) is
 
 bid book.bookid%type;
 invid inventory.inventoryno%type;
@@ -7,13 +7,10 @@ p_DueID  Dues.DueID%TYPE;
 diff int;
 fine int;
 
-borrid borrow.borrowid%type;
 
 cursor c(borrid borrow.borrowid%type) is select * from borrow where borrowid=borrid;
 
 begin
-
-borrid := '&borrowid';
 
 Flag := 0;
 
@@ -40,7 +37,7 @@ insert into dues values
 insert into borrow_dues values
 (item.borrowid, p_dueid);
 
-moneyreceived('FINE');
+moneyreceived('FINE',borrid,p_method);
 
 end if;
 End loop;
