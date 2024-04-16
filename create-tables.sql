@@ -55,7 +55,6 @@ CREATE TABLE Borrow (
     Status VARCHAR(50),
     FOREIGN KEY (BookID,InventoryID) REFERENCES Inventory(BookID, InventoryNo),
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
-    Check (Status in('Paid', 'Unpaid'))
 );
 
 CREATE TABLE Dues (
