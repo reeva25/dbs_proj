@@ -33,14 +33,19 @@ CREATE TABLE Inventory (
 
 CREATE TABLE Subscription (
     SubType VARCHAR(50) PRIMARY KEY,
-    Amount numeric(10, 2)
+    Amount numeric(10, 2),
+    Check (SubscriptionType in ('PLATINUM','GOLD','SILVER'))
 );
+insert into Subscription values ('PLATINUM',10000);
+insert into Subscription values ('GOLD',7500);
+insert into Subscription values ('SILVER',5000);
 
 CREATE TABLE Users (
-    UserID NUMERIC(5)  PRIMARY KEY,
+    UserID int  PRIMARY KEY,
 	 Name VARCHAR(45),
     SubscriptionType VARCHAR(50),
-   FOREIGN KEY (SubscriptionType) REFERENCES Subscription (SubType)
+   FOREIGN KEY (SubscriptionType) REFERENCES Subscription (SubType),
+   Check (SubscriptionType in ('PLATINUM','GOLD','SILVER'))
 );
 
 CREATE TABLE Borrow (
