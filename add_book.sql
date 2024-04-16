@@ -44,7 +44,7 @@ Create or replace procedure add_book is
 	gname:='&genre';
 
 	select count(bookid)+1 into t_bid from book;
-	dbms_output.put_line(t_bid);
+	
 
     for item in c_book loop
 	if t_title=item.title then
