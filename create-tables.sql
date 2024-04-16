@@ -1,9 +1,7 @@
 
 CREATE TABLE Author (
     AuthID number PRIMARY KEY,
-    Name VARCHAR(25),
-    Nationality VARCHAR(25),
-    Gender VARCHAR(5)
+    Name VARCHAR(25)
 );
 
 CREATE TABLE Genre (
