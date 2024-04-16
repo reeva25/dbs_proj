@@ -1,6 +1,5 @@
-create or replace procedure borrow_book as
-bookname BOOK.title%type;
-usid users.userid%type;
+create or replace procedure borrow_book(bookname BOOK.title%type , usid users.userid%type) as
+
 bid book.bookid%type;
 borr borrow.borrowid%type;
 Stype subscription.subtype%type;
@@ -11,8 +10,7 @@ cursor c(bid book.bookid%type) is select * from inventory where bookid=bid;
 
 begin
 flag := 0;
-bookname := 'BOOKNAME';
-usid := 'USERID';
+
 
 select bookid into bid from book where title=bookname;
 
