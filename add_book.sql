@@ -88,9 +88,4 @@ end if;
 End;
 /
 
-set serveroutput on;
-begin
-add_book('Percy Jackson','Rick','Fiction');
-end;
-/
 
