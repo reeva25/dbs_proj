@@ -23,7 +23,7 @@ update book set AvailableQty= AvailableQty-1 where bookid=item.bookid;
 
 	select count(borrowid)+1 into borr from borrow;	
 
-	insert into borrow values( borr, SYSDATE, SYSDATE + INTERVAL '15' DAY, item.InventoryNo,item.bookid,usid,NULL);
+	insert into borrow values( borr, SYSDATE, SYSDATE + INTERVAL '15' DAY, item.InventoryNo,item.bookid,usid,'borrowed');
 	EXIT;
 END IF;
 end loop;
