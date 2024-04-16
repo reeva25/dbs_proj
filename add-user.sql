@@ -1,18 +1,11 @@
-Create or replace procedure add_user is
+Create or replace procedure add_user(t_name users.name%type , t1_Subscription users.SubscriptionType%type,p_method Dues.Method%TYPE) is
 t_user_id users.userid%type;
-t_name users.name%type;
-t1_Subscription users.SubscriptionType%type;
-
-
 
 Begin
 SELECT count(userid)+1 INTO t_user_id  FROM users;
-t_name := '&user_name' ;
-t1_Subscription := 'sub_type' ;
-
 insert into users values(t_user_id,t_name,t1_Subscription);
 
-moneyreceived('SUBSCRIPTION');
+moneyreceived('SUBSCRIPTION',t_user_id,p_method);
 
 exception
  WHEN DUP_VAL_ON_INDEX THEN
