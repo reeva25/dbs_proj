@@ -1,6 +1,6 @@
 
 import cx_Oracle
-con = cx_Oracle.connect('dbs_proj/1177')
+con = cx_Oracle.connect('dbs_proj/****')
 print(con.version)
 
 # cursor2 = con.cursor()
